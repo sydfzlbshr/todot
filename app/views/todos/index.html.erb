@@ -16,8 +16,12 @@
 >
   <% @todos.order(position: :asc).each do |todo| %>
     <div data-id="<%= todo.id %>" class="card card-body mb-4">
+      <%= check_box_tag nil, nil, todo.completed_at?, data: { reflex: "click->TodosReflex#toggle_completed_at", id: todo.id } %>
       <%= todo.title %>
+      <br>
       <%= todo.due_at %>
+      <br>
+      <%= todo.completed_at %>
     </div>
   <% end %>
 </div>

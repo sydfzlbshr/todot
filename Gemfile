@@ -72,3 +72,5 @@ gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'whenever', require: false
 
 gem "acts_as_list", "~> 1.0"
+
+gem "stimulus_reflex", "~> 3.1"
