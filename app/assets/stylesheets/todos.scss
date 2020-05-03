@@ -1,3 +1,10 @@
 // Place all the styles related to the Todos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.todo-card-completed {
+  background-color: lightgrey;
+  p.todo-completed {
+    text-decoration: line-through;
+  }
+}

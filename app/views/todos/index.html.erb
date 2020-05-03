@@ -10,18 +10,23 @@
   </div>
 </div>
 
+<%= render 'form', todo: @todo %>
+
 <div
   data-controller="drag-drop-sortable"
   data-drag-drop-sortable-url="/todos/:id.js"
 >
-  <% @todos.order(position: :asc).each do |todo| %>
-    <div data-id="<%= todo.id %>" class="card card-body mb-4">
-      <%= check_box_tag nil, nil, todo.completed_at?, data: { reflex: "click->TodosReflex#toggle_completed_at", id: todo.id } %>
-      <%= todo.title %>
-      <br>
-      <%= todo.due_at %>
-      <br>
-      <%= todo.completed_at %>
+  <% (@todos.incomplete + @todos.complete).each do |todo| %>
+    <div
+      data-id="<%= todo.id %>"
+      class="card card-body <%= todo.completed_at? ? 'todo-card-completed' : '' %> mb-4"
+    >
+      <%= check_box_tag nil, nil,
+                        todo.completed_at?,
+                        data: { reflex: "click->TodosReflex#toggle_completed_at",
+                                id: todo.id }
+      %>
+      <p class="<%= todo.completed_at? ? 'todo-completed' : '' %>"><%= todo.title %></p>
     </div>
   <% end %>
 </div>
