@@ -14,7 +14,7 @@ class TodosTest < ApplicationSystemTestCase
     visit todos_url
     click_on "New Todo"
 
-    check "Done" if @todo.done
+    fill_in "Completed at", with: @todo.completed_at
     fill_in "Due at", with: @todo.due_at
     fill_in "Position", with: @todo.position
     fill_in "Title", with: @todo.title
@@ -29,7 +29,7 @@ class TodosTest < ApplicationSystemTestCase
     visit todos_url
     click_on "Edit", match: :first
 
-    check "Done" if @todo.done
+    fill_in "Completed at", with: @todo.completed_at
     fill_in "Due at", with: @todo.due_at
     fill_in "Position", with: @todo.position
     fill_in "Title", with: @todo.title

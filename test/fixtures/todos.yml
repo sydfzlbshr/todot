@@ -4,12 +4,12 @@ one:
   title: MyString
   user: one
   due_at: 2020-05-03 19:41:24
-  done: false
+  complted_at: null
   position: 1
 
 two:
   title: MyString
   user: two
   due_at: 2020-05-03 19:41:24
-  done: false
+  complted_at: 2020-05-03 19:41:24
   position: 1
