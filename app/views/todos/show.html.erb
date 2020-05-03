@@ -1,0 +1,27 @@
+<div class="page-header">
+  <%= link_to todos_path, class: 'btn btn-default' do %>
+    All Todos
+  <% end %>
+  <%= link_to edit_todo_path(@todo), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show todo</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @todo.title %></dd>
+
+  <dt>User:</dt>
+  <dd><%= @todo.user %></dd>
+
+  <dt>Due at:</dt>
+  <dd><%= @todo.due_at %></dd>
+
+  <dt>Done:</dt>
+  <dd><%= @todo.done %></dd>
+
+  <dt>Position:</dt>
+  <dd><%= @todo.position %></dd>
+
+</dl>
