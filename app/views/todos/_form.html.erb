@@ -30,10 +30,6 @@
 
     <%= form.submit class: 'btn btn-primary' %>
 
-    <% if todo.persisted? %>
-      <%= link_to "Cancel", todo, class: "btn btn-link" %>
-    <% else %>
-      <%= link_to "Cancel", todos_path, class: "btn btn-link" %>
-    <% end %>
+    <%= link_to "Cancel", todos_path, class: "btn btn-link" %>
   </div>
 <% end %>

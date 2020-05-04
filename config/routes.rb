@@ -1,7 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :todos
+  resources :todos, except: :show
+  get '/todos/:year/:month/:day_of_month', to: 'todos#index'
+
   namespace :admin do
     resources :users
     resources :services

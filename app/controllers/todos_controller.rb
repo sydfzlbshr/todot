@@ -4,8 +4,9 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = current_user.todos
-    @todo ||= current_user.todos.new
+    date = Date.parse("#{params[:day_of_month]} #{params[:month]} #{params[:year]}") rescue Date.current
+    @todos = current_user.todos.where(due_at: date.beginning_of_day..date.end_of_day)
+    @todo ||= @todos.new
   end
 
   # GET /todos/1
@@ -43,7 +44,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to todos_path, notice: 'Todo was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo }
         format.js   { head :ok }
       else

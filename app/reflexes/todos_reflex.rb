@@ -12,4 +12,8 @@ class TodosReflex < ApplicationReflex
     @todo = current_user.todos.new(title: element[:value])
     @todo.valid?
   end
+
+  def edit
+    @todo = current_user.todos.find element.dataset[:id]
+  end
 end

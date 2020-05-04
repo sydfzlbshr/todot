@@ -2,12 +2,6 @@
   <div class="col-sm-6">
     <h1>Todos</h1>
   </div>
-
-  <div class="col-sm-6 text-right">
-    <%= link_to new_todo_path, class: 'btn btn-primary' do %>
-      Add New Todo
-    <% end %>
-  </div>
 </div>
 
 <%= render 'form', todo: @todo %>
@@ -21,12 +15,15 @@
       data-id="<%= todo.id %>"
       class="card card-body <%= todo.completed_at? ? 'todo-card-completed' : '' %> mb-4"
     >
-      <%= check_box_tag nil, nil,
-                        todo.completed_at?,
-                        data: { reflex: "click->TodosReflex#toggle_completed_at",
-                                id: todo.id }
-      %>
-      <p class="<%= todo.completed_at? ? 'todo-completed' : '' %>"><%= todo.title %></p>
+      <div class="row ml-1" style="display: flex; justify-content: space-between;">
+        <%= check_box_tag nil, nil,
+                          todo.completed_at?,
+                          data: { reflex: "click->TodosReflex#toggle_completed_at",
+                                  id: todo.id }
+        %>
+        <p class="ml-1 <%= todo.completed_at? ? 'todo-completed' : '' %>"><%= todo.title %></p>
+        <%= button_tag 'edit', class: 'btn btn-link btn-sm', data: { reflex: "click->TodosReflex#edit", id: todo.id } %>
+      </div>
     </div>
   <% end %>
 </div>
