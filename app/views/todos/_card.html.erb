@@ -1,0 +1,14 @@
+<div
+  data-id="<%= todo.id %>"
+  class="card card-body <%= todo.completed_at? ? 'todo-card-completed' : '' %> mb-4"
+>
+  <div class="row ml-1" style="display: flex; justify-content: space-between;">
+    <%= check_box_tag nil, nil,
+                      todo.completed_at?,
+                      data: { reflex: "click->TodosReflex#toggle_completed_at",
+                              id: todo.id }
+    %>
+    <p class="ml-1 <%= todo.completed_at? ? 'todo-completed' : '' %>"><%= todo.title %></p>
+    <%= button_tag 'edit', class: 'btn btn-link btn-sm', data: { reflex: "click->TodosReflex#edit", id: todo.id } %>
+  </div>
+</div>
