@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="col-sm-6">
-    <h1>Todos</h1>
+  <div class="col-sm-6 row">
+    <%= link_to 'prev day', todos_on_date_path(date: @date.prev_day) %>
+    <h1>Todos on <%= @date %></h1>
+    <%= link_to 'next day', todos_on_date_path(date: @date.next_day) %>
   </div>
 </div>
 
