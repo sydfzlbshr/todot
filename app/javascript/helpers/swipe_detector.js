@@ -6,12 +6,14 @@ export default class {
   RESTRAINT = 100
   DURATION = 300
 
+  originalPosition;
   start;
   end;
 
   constructor(element) {
     this.element = element
 
+    this.originalPosition = this.element.getBoundingClientRect().left - this.element.parentElement.getBoundingClientRect().left;
     this.addSwipeDetector()
   }
 
@@ -26,11 +28,18 @@ export default class {
       touch: e.changedTouches[0],
       time: new Date().getTime()
     }
-
-    e.preventDefault()
   }
 
   touchMove(e) {
+    this.end = {
+      touch: e.changedTouches[0],
+      time: new Date().getTime()
+    }
+
+    if (this.isHorizontalSwipe() && this.isRightSwipe()) {
+      e.currentTarget.style.left = `${this.originalPosition + e.changedTouches[0].pageX}px`
+    }
+
     e.preventDefault()
   }
 
@@ -41,8 +50,7 @@ export default class {
     }
 
     SwipeEventDispatcher(this.direction(), e.currentTarget)
-
-    e.preventDefault()
+    if (this.isHorizontalSwipe() && this.isRightSwipe()) e.currentTarget.style.display = 'none'
   }
 
   direction() {
