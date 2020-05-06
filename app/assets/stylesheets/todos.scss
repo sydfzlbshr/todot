@@ -4,7 +4,7 @@
 
 div.todo-card-completed {
   background-color: lightgrey;
-  p.todo-completed {
+  span.todo-completed {
     text-decoration: line-through;
   }
 }
