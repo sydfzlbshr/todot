@@ -1,9 +1,11 @@
 <div
   data-id="<%= todo.id %>"
-  class="todo-card <%= todo.completed_at? ? 'todo-card-completed' : 'todo-card-incomplete' %>"
+  data-controller="revealable"
+  data-action="click->revealable#reveal"
+  class="todo-row <%= todo.completed_at? ? 'todo-row-completed' : 'todo-row-incomplete' %>"
 >
-  <div style="display: flex; flex-direction: row; align-items: center;">
-    <div class="handle" style="cursor: grab;">
+  <div style="display: flex; flex-direction: row; align-items: center; margin-left: -18px;">
+    <div class="handle mr-2" style="cursor: grab; color: transparent;" data-target="revealable.revealable">
       <svg class="bi bi-three-dots-vertical"
            width="1em" height="1em"
            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -13,15 +15,20 @@
     <span class="todo-title" style="flex-grow: 1;">
       <%= todo.title %>
     </span>
-    <%= check_box_tag nil, nil,
-                      todo.completed_at?,
-                      class: 'mr-2',
-                      data: { reflex: "click->TodosReflex#toggle_completed_at",
-                              id: todo.id }
-    %>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
-                   data: { reflex: "click->TodosReflex#edit", id: todo.id } 
+                   style: 'color: transparent;',
+                   data: {
+                     reflex: "click->TodosReflex#edit",
+                     target: 'revealable.revealable',
+                     id: todo.id
+                   }
+    %>
+    <%= check_box_tag nil, nil,
+                      todo.completed_at?,
+                      class: 'ml-2',
+                      data: { reflex: "click->TodosReflex#toggle_completed_at",
+                              id: todo.id }
     %>
   </div>
 </div>

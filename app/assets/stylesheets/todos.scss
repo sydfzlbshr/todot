@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-div.todo-card {
+div.todo-row {
   padding: 10px;
 
   input[type='checkbox'] {
@@ -18,7 +18,7 @@ div.todo-card {
   }
 }
 
-div.todo-card-completed {
+div.todo-row-completed {
   background-color: lightgrey;
 
   span.todo-title {
