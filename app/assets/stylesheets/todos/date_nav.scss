@@ -1,0 +1,90 @@
+
+div#date-nav {
+  display: grid;
+  grid-template-columns: 15% 15% 40% 15% 15%;
+  grid-template-rows: 15% 15% 40% 15% 15%;
+
+  align-items: center;
+  text-align: center;
+
+  padding-bottom: 1rem;
+
+  #prev-quarter {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+  #prev-month {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  #this-month {
+    grid-column-start: 3;
+    grid-row-start: 1;
+  }
+  
+  #next-month {
+    grid-column-start: 4;
+    grid-row-start: 1;
+  }
+  
+  #next-quarter {
+    grid-column-start: 5;
+    grid-row-start: 1;
+  }
+
+  #prev-week {
+    grid-column-start: 1;
+    grid-row-start: 2;
+  }
+
+  #prev-day {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  #this-day {
+    grid-column-start: 3;
+    grid-row-start: 2;
+
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 2.5rem;
+  }
+  
+  #next-day {
+    grid-column-start: 4;
+    grid-row-start: 2;
+  }
+  
+  #next-week {
+    grid-column-start: 5;
+    grid-row-start: 2;
+  }
+
+  #prev-decade {
+    grid-column-start: 1;
+    grid-row-start: 3;
+  }
+
+  #prev-year {
+    grid-column-start: 2;
+    grid-row-start: 3;
+  }
+
+  #this-year {
+    grid-column-start: 3;
+    grid-row-start: 3;
+  }
+  
+  #next-year {
+    grid-column-start: 4;
+    grid-row-start: 3;
+  }
+  
+  #next-decade {
+    grid-column-start: 5;
+    grid-row-start: 3;
+  }
+}

@@ -8,7 +8,9 @@ export default class extends Controller {
   
   HIDE_COLOR = 'transparent'
 
-  connect() {}
+  connect() {
+    this.waitAndHideRevealables()
+  }
 
   reveal() {
     this.revealReveables()

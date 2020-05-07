@@ -5,7 +5,7 @@
   class="todo-row <%= todo.completed_at? ? 'todo-row-completed' : 'todo-row-incomplete' %>"
 >
   <div style="display: flex; flex-direction: row; align-items: center; margin-left: -18px;">
-    <div class="handle mr-2" style="cursor: grab; color: transparent;" data-target="revealable.revealable">
+    <div class="handle mr-2" style="cursor: grab;" data-target="revealable.revealable">
       <svg class="bi bi-three-dots-vertical"
            width="1em" height="1em"
            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,6 @@
     </span>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
-                   style: 'color: transparent;',
                    data: {
                      reflex: "click->TodosReflex#edit",
                      target: 'revealable.revealable',
