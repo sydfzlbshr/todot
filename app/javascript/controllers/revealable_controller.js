@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["revealable"]
+  static targets = ["colorable"]
 
   REVEAL_DURATION = 3000 // seconds
   REVEAL_COLOR = ''
@@ -21,12 +21,12 @@ export default class extends Controller {
     setTimeout(() => this.hideRevealables(), this.REVEAL_DURATION)
   }
 
-  revealReveables() { this.setRevealablesColor(this.REVEAL_COLOR) }
+  revealReveables() { this.setColorablesColor(this.REVEAL_COLOR) }
 
-  hideRevealables() { this.setRevealablesColor(this.HIDE_COLOR) }
+  hideRevealables() { this.setColorablesColor(this.HIDE_COLOR) }
 
-  setRevealablesColor(color) {
-    this.revealableTargets.forEach(element => this.setElementColor(element, color))
+  setColorablesColor(color) {
+    this.colorableTargets.forEach(element => this.setElementColor(element, color))
   }
 
   setElementColor(element, color) { element.style.color = color }
