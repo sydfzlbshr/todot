@@ -1,24 +1,24 @@
 <div
   data-id="<%= todo.id %>"
-  class="card card-body <%= todo.completed_at? ? 'todo-card-completed' : '' %> mb-4"
+  class="todo-card <%= todo.completed_at? ? 'todo-card-completed' : 'todo-card-incomplete' %>"
 >
-  <div class="row ml-1" style="display: flex; align-items: center;">
+  <div style="display: flex; flex-direction: horizontal; align-items: center;">
     <div class="handle" style="cursor: grab;">
-      <svg class="bi bi-three-dots-vertical mr-2"
+      <svg class="bi bi-three-dots-vertical"
            width="1em" height="1em"
            viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"/>
       </svg>
-    </div>    
+    </div>
+    <span class="todo-title" style="flex-grow: 1;">
+      <%= todo.title %>
+    </span>
     <%= check_box_tag nil, nil,
                       todo.completed_at?,
                       class: 'mr-2',
                       data: { reflex: "click->TodosReflex#toggle_completed_at",
                               id: todo.id }
     %>
-    <span class="<%= todo.completed_at? ? 'todo-completed' : '' %>" style="flex-grow: 1;">
-      <%= todo.title %>
-    </span>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
                    data: { reflex: "click->TodosReflex#edit", id: todo.id } 
