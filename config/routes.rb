@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :todos, except: :show
-  get '/todos/:date', to: 'todos#index', as: :todos_on_date
+  get '/:date', to: 'todos#index', as: :date
 
   namespace :admin do
     resources :users

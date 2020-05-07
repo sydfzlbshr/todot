@@ -31,7 +31,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to todos_on_date_path(date: @todo.due_on), notice: 'Todo was successfully created.' }
+        format.html { redirect_to date_path(date: @todo.due_on), notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to todos_on_date_path(date: @todo.due_on), notice: 'Todo was successfully updated.' }
+        format.html { redirect_to date_path(date: @todo.due_on), notice: 'Todo was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo }
         format.js   { head :ok }
       else
@@ -60,7 +60,7 @@ class TodosController < ApplicationController
   def destroy
     @todo.destroy
     respond_to do |format|
-      format.html { redirect_to todos_on_date_path(date: @todo.due_on), notice: 'Todo was successfully destroyed.' }
+      format.html { redirect_to date_path(date: @todo.due_on), notice: 'Todo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
