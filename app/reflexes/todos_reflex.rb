@@ -8,12 +8,11 @@ class TodosReflex < ApplicationReflex
     todo.update completed_at: todo.completed_at? ? nil : Time.current
   end
 
-  def validate
-    @todo = current_user.todos.new(title: element[:value])
-    @todo.valid?
-  end
-
   def edit
     @todo = current_user.todos.find element.dataset[:id]
+  end
+
+  def reset
+    @todo = nil
   end
 end

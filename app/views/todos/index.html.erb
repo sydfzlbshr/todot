@@ -1,9 +1,7 @@
-<div class="row">
-  <div class="col-sm-6 pb-3" style="display: flex; flex-direction: horizontal; justify-content: space-between; align-items: center;">
-    <%= link_to 'prev day', todos_on_date_path(date: @date.prev_day) %>
-    <h1 style="margin-bottom: 0;"><%= @date %></h1>
-    <%= link_to 'next day', todos_on_date_path(date: @date.next_day) %>
-  </div>
+<div class="pb-3" style="display: flex; flex-direction: horizontal; justify-content: center; align-items: center;">
+  <%= link_to 'prev day', todos_on_date_path(date: @date.prev_day) %>
+  <h1 class="pl-4 pr-4" style="margin-bottom: 0;"><%= @date %></h1>
+  <%= link_to 'next day', todos_on_date_path(date: @date.next_day) %>
 </div>
 
 <%= render 'form', todo: @todo %>
