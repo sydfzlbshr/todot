@@ -9,11 +9,22 @@
 
 import { Controller } from "stimulus"
 
-import SwipeDetector from "../helpers/swipe_detector"
+import SwipeDetector from "../helpers/swipes/detector"
+import EventDispatcher from "../helpers/swipes/event_dispatcher"
 
 export default class extends Controller {
 
   connect() {
-    new SwipeDetector(this.element)
+    new SwipeDetector(this.element, {
+      move: (swipe) => {
+        if (swipe.isHorizontal()) swipe.moveElementAlong()
+      },
+
+      end: (swipe) => {
+        EventDispatcher(swipe.direction(), this.element)
+        if (swipe.isHorizontal() && swipe.isRight()) this.element.style.display = 'none'
+        swipe.moveElementBack()
+      }
+    })
   }
 }
