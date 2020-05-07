@@ -36,8 +36,6 @@ export default class {
     this.endTouch = e.changedTouches[0]
 
     this.moveCallback(this)
-
-    e.preventDefault()
   }
 
   touchEnd(e) {

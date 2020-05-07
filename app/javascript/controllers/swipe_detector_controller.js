@@ -16,8 +16,12 @@ export default class extends Controller {
 
   connect() {
     new SwipeDetector(this.element, {
+
       move: (swipe) => {
-        if (swipe.isHorizontal()) swipe.moveElementAlong()
+        if (swipe.isHorizontal()) {
+          swipe.moveElementAlong()
+          e.preventDefault()
+        }
       },
 
       end: (swipe) => {
