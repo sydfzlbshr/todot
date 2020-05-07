@@ -1,6 +1,10 @@
-<div class="pb-3" style="display: flex; flex-direction: horizontal; justify-content: center; align-items: center;">
+<div class="pb-3" style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
   <%= link_to 'prev day', date_path(date: @date.prev_day) %>
-  <h1 class="pl-4 pr-4" style="margin-bottom: 0;"><%= @date %></h1>
+  <div class="pl-4 pr-4" style="display: flex; flex-direction: column; align-items: center;">
+    <span><%= @date.strftime('%b') %></span>
+    <h1 style="margin-bottom: 0;"><%= @date.strftime('%e %a') %></h1>
+    <span><%= @date.strftime('%Y') %></span>
+  </div>
   <%= link_to 'next day', date_path(date: @date.next_day) %>
 </div>
 

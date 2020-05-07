@@ -23,13 +23,13 @@
   </div>
 
   <div class="form-group"
-       style="display: flex; flex-direction: horizontal; justify-content: space-between; visibility: <%= form.object.title? ? 'visible' : 'hidden' %>"
+       style="display: flex; flex-direction: row; justify-content: space-between; visibility: <%= form.object.title? ? 'visible' : 'hidden' %>"
        data-target="todo-form.dueAtSelect">
     <%= form.datetime_select :due_at, class: 'form-control' %>
   </div>
 
   <div class="form-group"
-       style="display: flex; flex-direction: horizontal; justify-content: space-between; visibility: <%= form.object.title? ? 'visible' : 'hidden' %>""
+       style="display: flex; flex-direction: row; justify-content: space-between; visibility: <%= form.object.title? ? 'visible' : 'hidden' %>""
        data-target="todo-form.actionsDiv">
     <%= link_to "Cancel", '#', class: "btn btn-link", data: { reflex: "TodosReflex#reset" } %>
 
