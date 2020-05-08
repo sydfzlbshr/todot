@@ -16,18 +16,19 @@ div.todo-row {
   span.todo-title {
     margin-left: 6px;
 
+    span.due-in-time {
+      font-size: x-small;
+    }
+
     span.due-in-less-than-an-hour {
-      font-size: small;
       color: red;
     }
 
     span.due-in-less-than-two-hours {
-      font-size: small;
       color: orange;
     }
 
     span.due-in-less-than-four-hours {
-      font-size: small;
       color: green;
     }
   }

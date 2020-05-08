@@ -5,18 +5,18 @@
   class="todo-row <%= todo.completed_at? ? 'todo-row-completed' : 'todo-row-incomplete' %>"
 >
   <div style="display: flex; flex-direction: row; align-items: center; margin-left: -18px;">
-    <div class="handle mr-2" style="cursor: grab; color: transparent;" data-target="revealable.colorable">
+    <div class="handle" style="cursor: grab; color: transparent; height: 30px; width: 30px; min-width: 30px;" data-target="revealable.colorable">
       <%= render 'icons/three_dots_vertical' %>
     </div>
     <span class="todo-title" style="flex-grow: 1;">
       <%= todo.title %>
-      <% if !todo.completed_at? %>
+      <% if !todo.completed_at? && todo.due_at > Time.current %>
         <% if todo.due_at < 1.hour.from_now %>
-          <br><span class="due-in-less-than-an-hour">due in <%= time_ago_in_words(todo.due_at) %></span>
+          <br><span class="due-in-time due-in-less-than-an-hour">due in <%= time_ago_in_words(todo.due_at) %></span>
         <% elsif todo.due_at < 2.hours.from_now %>
-          <br><span class="due-in-less-than-two-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
+          <br><span class="due-in-time due-in-less-than-two-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
         <% elsif todo.due_at < 4.hours.from_now %>
-          <br><span class="due-in-less-than-four-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
+          <br><span class="due-in-time due-in-less-than-four-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
         <% end %>
       <% end %>
     </span>
