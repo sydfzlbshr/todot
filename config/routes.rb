@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :announcements
     resources :notifications
 
-    root to: "todos#index"
+    root to: "users#index"
   end
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
