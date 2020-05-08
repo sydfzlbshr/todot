@@ -31,6 +31,10 @@ div.todo-row {
     span.due-in-less-than-four-hours {
       color: green;
     }
+
+    span.overdue-less-than-one-hour-ago {
+      color: gray
+    }
   }
 }
 

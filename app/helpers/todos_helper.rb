@@ -13,4 +13,8 @@ module TodosHelper
       ''
     end
   end
+
+  def overdue_ago_class(todo)
+    'overdue-less-than-one-hour-ago'
+  end
 end

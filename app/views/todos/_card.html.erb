@@ -11,8 +11,11 @@
     <span class="todo-title" style="flex-grow: 1;">
       <%= todo.title %>
       <% if !todo.completed_at? %>
+        <br>
         <% if todo.due_at > Time.current %>
-          <br><span class="due-in-time <%= due_in_less_than_class(todo) %>">due in <%= time_ago_in_words(todo.due_at) %></span>
+          <span class="due-in-time <%= due_in_less_than_class(todo) %>">due in <%= time_ago_in_words(todo.due_at) %></span>
+        <% elsif todo.due_at > 1.hour.ago %>
+          <span class="due-in-time <%= overdue_ago_class(todo) %>">overdue <%= time_ago_in_words(todo.due_at) %> ago</span>
         <% end %>
       <% end %>
     </span>
