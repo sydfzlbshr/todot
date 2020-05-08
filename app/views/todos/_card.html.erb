@@ -12,9 +12,9 @@
       <%= todo.title %>
       <% if !todo.completed_at? %>
         <br>
-        <% if todo.due_at > Time.current %>
+        <% if (Time.current..4.hours.from_now).cover? todo.due_at %>
           <span class="due-in-time <%= due_in_less_than_class(todo) %>">due in <%= time_ago_in_words(todo.due_at) %></span>
-        <% elsif todo.due_at > 1.hour.ago %>
+        <% elsif (1.hour.ago..Time.current).cover? todo.due_at %>
           <span class="due-in-time <%= overdue_ago_class(todo) %>">overdue <%= time_ago_in_words(todo.due_at) %> ago</span>
         <% end %>
       <% end %>
