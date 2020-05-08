@@ -1,20 +1,20 @@
 <div id="date-nav" data-controller="revealable" data-action="click->revealable#reveal">
-  <%= link_to date_path(date: date - 10.years), id: 'prev-decade', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 10.years), id: 'prev-decade', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 1.year), id: 'prev-year', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 1.year), id: 'prev-year', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 3.months), id: 'prev-quarter', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 3.months), id: 'prev-quarter', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 1.month), id: 'prev-month', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 1.month), id: 'prev-month', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_left' %>
   <% end %>
-  <%= link_to date_path(date: date - 1.week), id: 'prev-week', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date - 1.week), id: 'prev-week', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_left' %>
   <% end %>
-  <%= link_to date_path(date: date.prev_day), id: 'prev-day', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date.prev_day), id: 'prev-day', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_left' %>
   <% end %>
 
@@ -22,22 +22,22 @@
   <span id="this-day"><%= date.strftime('%e %a') %></span>
   <span id="this-year"><%= date.strftime('%Y') %></span>
 
-  <%= link_to date_path(date: date.next_day), id: 'next-day', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date.next_day), id: 'next-day', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 1.week), id: 'next-week', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 1.week), id: 'next-week', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 1.month), id: 'next-month', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 1.month), id: 'next-month', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 3.months), id: 'next-quarter', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 3.months), id: 'next-quarter', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 1.year), id: 'next-year', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 1.year), id: 'next-year', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_right' %>
   <% end %>
-  <%= link_to date_path(date: date + 10.years), id: 'next-decade', data: { target: 'revealable.colorable' } do %>
+  <%= link_to date_path(date: date + 10.years), id: 'next-decade', style: 'color: transparent;', data: { target: 'revealable.colorable' } do %>
     <%= render 'icons/chevron_double_right' %>
   <% end %>
 </div>

@@ -11,6 +11,7 @@ export default class extends Controller {
   HIDE_VISIBILITY = 'hidden'
 
   connect() {
+    this.revealReveables()
     this.waitAndHideRevealables()
   }
 
