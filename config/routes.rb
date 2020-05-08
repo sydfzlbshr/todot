@@ -2,7 +2,6 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :todos, except: :show
-  get '/:date', to: 'todos#index', as: :date
 
   namespace :admin do
     resources :users
@@ -28,4 +27,5 @@ Rails.application.routes.draw do
   get '/manifest.json' => "service_worker#manifest"
   get '/offline.html' => "service_worker#offline"
 
+  get '/:date', to: 'todos#index', as: :date
 end

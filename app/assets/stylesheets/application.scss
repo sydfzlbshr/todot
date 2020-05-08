@@ -8,7 +8,7 @@
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";
 @import "todos";
-@import "todos/date_nav.scss";
+@import "todos/date_nav";
 
 // Fixes bootstrap nav-brand container overlap
 @include media-breakpoint-down(xs) {
