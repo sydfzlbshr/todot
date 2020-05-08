@@ -10,6 +10,15 @@
     </div>
     <span class="todo-title" style="flex-grow: 1;">
       <%= todo.title %>
+      <% if !todo.completed_at? %>
+        <% if todo.due_at < 1.hour.from_now %>
+          <br><span class="due-in-less-than-an-hour">due in <%= time_ago_in_words(todo.due_at) %></span>
+        <% elsif todo.due_at < 2.hours.from_now %>
+          <br><span class="due-in-less-than-two-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
+        <% elsif todo.due_at < 4.hours.from_now %>
+          <br><span class="due-in-less-than-four-hours">due in <%= time_ago_in_words(todo.due_at) %></span>
+        <% end %>
+      <% end %>
     </span>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
