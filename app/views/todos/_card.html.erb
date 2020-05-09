@@ -21,10 +21,10 @@
     </span>
     <%= button_tag 'edit',
                    class: 'btn btn-link btn-sm',
-                   style: 'color: transparent;',
+                   style: 'visibility: hidden;',
                    data: {
                      reflex: "click->TodosReflex#edit",
-                     target: 'revealable.colorable',
+                     target: 'revealable.hidable',
                      id: todo.id
                    }
     %>
