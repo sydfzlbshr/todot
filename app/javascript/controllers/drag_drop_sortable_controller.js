@@ -14,7 +14,12 @@ export default class extends Controller {
   end(event) {
     let id = event.item.dataset.id
     let data = new FormData()
-    data.append("todo[position]", event.newIndex + 1)
+
+    data.append(
+      `${this.data.get("model-name")}` +
+      `[${this.data.get("position-column") || "position"}]`,
+      event.newIndex + 1
+    )
 
     Rails.ajax({
       url: this.data.get("url").replace(":id", id),
