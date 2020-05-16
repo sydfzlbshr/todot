@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :todos, except: :show
+  resources :todo_list_positions, only: :update
 
   namespace :admin do
     resources :users
