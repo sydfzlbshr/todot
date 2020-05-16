@@ -4,7 +4,8 @@
 
 <div
   data-controller="drag-drop-sortable"
-  data-drag-drop-sortable-url="/todos/:id.js"
+  data-drag-drop-sortable-model-name="todo_list_position"
+  data-drag-drop-sortable-url="/todo_list_positions/:id.js"
 >
   <% (@todos.incomplete + @todos.complete).each do |todo| %>
     <%= render 'card', todo: todo %>
