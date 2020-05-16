@@ -6,7 +6,7 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @date = Date.parse(params[:date]) rescue Date.current
-    @todos = current_user.todos.where(due_at: @date.beginning_of_day..@date.end_of_day)
+    @todos = current_user.todos.where(due_at: @date.beginning_of_day..@date.end_of_day).order(position: :asc)
     @todo ||= @todos.new(due_at: @date.end_of_day)
   end
 
