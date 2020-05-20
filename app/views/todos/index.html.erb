@@ -11,3 +11,7 @@
     <%= render 'card', todo: todo %>
   <% end %>
 </div>
+
+<% if @todos.empty? %>
+  <%= image_tag image_urls.sample, style: "width: 100%" %>
+<% end %>
